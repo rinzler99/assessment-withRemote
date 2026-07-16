@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: sync-metrics-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      - key: SYNC_INTERVAL_MINUTES
+        value: "30"
+      - key: DATABASE_URL
+        sync: false
+      - key: HUBSPOT_TOKEN
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: GOOGLE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: GOOGLE_CALENDAR_ID
+        sync: false
+      - key: SYNC_API_KEY
+        sync: false
