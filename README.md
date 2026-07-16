@@ -7,6 +7,14 @@ Backend assignment, two parts, one FastAPI service:
 
 No UI; everything is curl-able. Live deployment runs on Render's free tier.
 
+## Live deployment
+
+- **Base URL:** https://sync-metrics-api-ttg1.onrender.com
+- **Interactive API docs (Swagger):** https://sync-metrics-api-ttg1.onrender.com/docs
+- Quick checks: [/health](https://sync-metrics-api-ttg1.onrender.com/health) · [/sync/status](https://sync-metrics-api-ttg1.onrender.com/sync/status) · [revenue summary](https://sync-metrics-api-ttg1.onrender.com/metrics/revenue?start=2026-07-01&end=2026-07-31) · [daily breakdown](https://sync-metrics-api-ttg1.onrender.com/metrics/revenue/daily?start=2026-07-01&end=2026-07-31)
+
+`POST /sync/run` is protected with an `x-api-key` header on the public deployment (a sync also runs automatically every 30 minutes). Note: free-tier services sleep when idle, so the first request can take ~50 seconds.
+
 ## How it works
 
 ```
@@ -76,7 +84,7 @@ Tests: `pytest`. The status-map and single-definition tests are pure; the DB tes
 ## API
 
 ```bash
-BASE=https://<your-service>.onrender.com   # or http://localhost:8000
+BASE=https://sync-metrics-api-ttg1.onrender.com   # or http://localhost:8000
 
 curl $BASE/health
 curl -X POST "$BASE/sync/run" -H "x-api-key: $SYNC_API_KEY"
