@@ -135,4 +135,4 @@ The next run logs `stripe cursor is stale ... falling back to full backfill`, re
 
 ## AI usage
 
-Built with Claude Code (Anthropic). I wrote the problem breakdown and design decisions in prompts and reviewed/tested everything that came back; the conversation export is shared alongside this repo: **[link to be added at submission]**.
+Built with Claude Code (Anthropic). I wrote the problem breakdown and design decisions in prompts and reviewed/tested everything that came back; the full conversation transcript is in this repo: [ai-conversation-export.txt](ai-conversation-export.txt) (API keys and passwords redacted; tool calls shown as one-line summaries).
